@@ -1,84 +1,232 @@
 body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    background: black;
-    color: white;
-    overflow: hidden;
-}
-
-.container {
-    text-align: center;
-    padding: 20px;
-}
-
-.social-icon {
-    width: 50px;
-    height: 50px;
-    object-fit: contain;
-    transition: transform 0.3s ease;
-    cursor: pointer;
-}
-
-.video-section video {
-    width: 100%;
-    max-width: 650px; /* Smaller video */
-    height: auto;
-    margin-bottom: 20px;
-}
-
-.wallet-links-section {
-    display: flex;
-    justify-content: center;
-    gap: 20px; /* Add some space between wallet and links */
-    align-items: center;
-}
-
-.wallet {
-    display: inline-flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-}
-
-.wallet button {
-    padding: 10px;
-    background: #ff9900;
-    color: white;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: 0.3s;
-}
-
-.wallet button:hover {
-    background: #e68a00;
-}
-
-.links {
-    display: inline-flex;
-    gap: 10px;
-}
-
-.social-icon:hover {
-    transform: scale(1.2);
-}
-
-header h1 {
-    font-size: 3rem;
-    color: #ff9900;
-    text-shadow: 0 0 20px orange;
-    margin-bottom: 20px;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  color: white;
+  overflow: hidden;
+  transition: background 0.5s ease, cursor 0.5s ease;
 }
 
 body:before {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url('images/background.gif') center center / cover no-repeat;
-    opacity: 0.5;
-    z-index: -1;
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.5;
+  z-index: -1;
+  transition: background 0.5s ease;
+}
+
+body.fire-mode {
+  background: url("images/fire-background.gif") center center / cover no-repeat;
+  cursor: url("images/fire.cur"), auto;
+  --theme-text-color: #ff9900;
+  --theme-shadow-color: orange;
+  --button-background-color: #ff9900;
+  --button-hover-background-color: #e68a00;
+}
+
+body.water-mode {
+  background: url("images/water-background.gif") center center / cover no-repeat;
+  cursor: url("images/water.cur"), auto;
+  --theme-text-color: #0066ff;
+  --theme-shadow-color: #0052cc;
+  --button-background-color: #0066ff;
+  --button-hover-background-color: #0052cc;
+}
+
+body.nature-mode {
+  background: url("images/nature-background.gif") center center / cover
+    no-repeat;
+  cursor: url("images/nature.cur"), auto;
+  --theme-text-color: #33cc33;
+  --theme-shadow-color: #28a828;
+  --button-background-color: #33cc33;
+  --button-hover-background-color: #28a828;
+}
+
+.container {
+  text-align: center;
+  padding: 20px;
+}
+
+.social-icon {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.social-icon:hover {
+  transform: scale(1.2);
+}
+
+.video-section video {
+  width: 100%;
+  max-width: 650px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.wallet-links-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+  padding: 10px;
+}
+
+.wallet {
+  text-align: center;
+}
+
+.links {
+  display: flex;
+  gap: 10px;
+}
+
+header h1 {
+  font-size: 3rem;
+  color: var(--theme-text-color);
+  text-shadow: 0 0 20px var(--theme-shadow-color);
+  margin-bottom: 20px;
+}
+
+.cookie-clicker-section {
+  text-align: center;
+  margin-top: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.cookie-image {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  border-radius: 50%;
+}
+
+.cookie-image:hover {
+  transform: scale(1.1);
+}
+
+#cookie-count {
+  font-size: 2rem;
+  color: var(--theme-text-color);
+  margin-top: 10px;
+}
+
+.change-mode-button,
+.wallet button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+  background: var(--button-background-color);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.change-mode-button:hover,
+.wallet button:hover {
+  background: var(--button-hover-background-color);
+  transform: scale(1.1);
+}
+
+.change-mode-button:active,
+.wallet button:active {
+  transform: scale(1.05);
+}
+
+/* Adjust layout for smaller screens */
+@media (max-width: 768px) {
+  .wallet-links-section {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .cookie-image {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+/* Fire Animation */
+.fire-animation {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(
+    circle,
+    rgba(255, 0, 0, 0.7),
+    rgba(255, 255, 0, 0)
+  );
+  border-radius: 50%;
+  animation: fireEffect 1.5s ease-out;
+  pointer-events: none; /* Prevent the animation from blocking interactions */
+  z-index: 10; /* Make sure it's below buttons and other UI elements */
+}
+
+@keyframes fireEffect {
+  0% {
+    transform: scale(0.5);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+
+@keyframes leafSpray {
+    0% {
+      transform: translate(0, 0) scale(1) rotate(0deg);  /* Start from the click position */
+    }
+    100% {
+      transform: translate(var(--offsetX), var(--offsetY)) scale(0.5) rotate(360deg);  /* Move outward in a circle */
+      opacity: 0;  /* Fade out */
+    }
+  }
+  
+  .leaf-animation {
+    position: absolute;
+    width: 30px;   /* Width of your leaf image */
+    height: 0px;  /* Height of your leaf image */
+    pointer-events: none; /* Ensure it doesn't block other clicks */
+    animation: leafSpray 1.5s ease-out forwards;
+    will-change: transform; /* Optimize animation performance */
+  }
+  
+
+/* Ripple Animation */
+.ripple-animation {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border: 2px solid rgba(0, 150, 255, 0.6);
+  border-radius: 50%;
+  animation: rippleEffect 2s ease-out;
+  pointer-events: none; /* Prevent the animation from blocking interactions */
+  z-index: 10;
+}
+
+@keyframes rippleEffect {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
 }

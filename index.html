@@ -16,14 +16,14 @@
 
       <section class="video-section">
         <video width="720" height="auto" controls>
-          <source src="images/TheLegend27.mp4" type="video/mp4">
+          <source src="images/TheLegend27.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
       </section>
 
       <section class="wallet-links-section">
         <div class="wallet">
-          <span id="wallet-address">0x1234567890abcdef1234567890abcdef12345678</span>
+          <span id="wallet-address">SOON</span>
           <button onclick="copyWallet()">Copy</button>
         </div>
 
@@ -32,9 +32,27 @@
             <img src="images/twitter.png" alt="Twitter" class="social-icon" />
           </a>
           <a href="https://telegram.org" target="_blank">
-            <img src="images/telegram.webp" alt="Telegram" class="social-icon" />
+            <img
+              src="images/telegram.webp"
+              alt="Telegram"
+              class="social-icon"
+            />
           </a>
         </div>
+
+        <div class="cookie-clicker">
+          <img
+            id="cookie-image"
+            src="images/fire-hood-off.png"
+            alt="Hood Off"
+            class="cookie-image"
+          />
+          <p id="cookie-count">Clicks: 0</p>
+        </div>
+
+        <button class="change-mode-button" onclick="toggleTheme()">
+          Change Mode
+        </button>
       </section>
     </div>
     <script src="script.js"></script>
