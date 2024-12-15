@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="TheLegend27 Meme Coin Website" />
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>TheLegend27</title>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>TheLegend27</h1>
+      </header>
+
+      <section class="video-section">
+        <video width="720" height="auto" controls>
+          <source src="images/TheLegend27.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </section>
+
+      <section class="wallet-links-section">
+        <div class="wallet">
+          <span id="wallet-address">0x1234567890abcdef1234567890abcdef12345678</span>
+          <button onclick="copyWallet()">Copy</button>
+        </div>
+
+        <div class="links">
+          <a href="https://twitter.com" target="_blank">
+            <img src="images/twitter.png" alt="Twitter" class="social-icon" />
+          </a>
+          <a href="https://telegram.org" target="_blank">
+            <img src="images/telegram.webp" alt="Telegram" class="social-icon" />
+          </a>
+        </div>
+      </section>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
